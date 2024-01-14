@@ -1,0 +1,43 @@
+@import './navigation';
+@import './hero';
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.App {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #138D96 30%, #632366 99%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100svh;
+    margin-inline: 5rem;
+}
+
+.Logo {
+    background-image: url('../../public/images/corazon.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 64px;
+    width: 64px;
+    &__container {
+        p {
+            font-family: 'Montserrat Alternates', sans-serif
+        }
+        ;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

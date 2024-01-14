@@ -1,0 +1,24 @@
+.nav {
+    &__bar {
+        height: 5rem;
+    }
+    &__list {
+        display: flex;
+        justify-content: flex-start;
+        text-align: center;
+        align-items: center;
+    }
+    &__item {
+        width: 25%;
+        list-style: none;
+        text-transform: capitalize;
+        color: white;
+        text-align: left;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        font-size: clamp(0.75rem, 30vw, 1.2rem);
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
