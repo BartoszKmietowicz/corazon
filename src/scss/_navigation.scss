@@ -7,13 +7,15 @@
         justify-content: flex-start;
         text-align: center;
         align-items: center;
+        gap:10rem;
+    }
+    &__logo{
+        width:30%;
     }
     &__item {
-        width: 25%;
         list-style: none;
         text-transform: capitalize;
-        color: white;
-        text-align: left;
+        text-align: right;
         letter-spacing: 1.5px;
         font-weight: 600;
         font-size: clamp(0.75rem, 30vw, 1.2rem);
@@ -21,4 +23,14 @@
             cursor: pointer;
         }
     }
+    &__items{
+        width:70%;
+        display:flex;
+        justify-content: flex-end;
+        gap:10rem;
+        align-items: center;
+    }
+}
+.Logo,p{
+    pointer-events: none;
 }

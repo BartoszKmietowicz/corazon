@@ -1,43 +1,73 @@
 @import './navigation';
 @import './hero';
+@import './team';
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: 5rem;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 5rem;
+}
+html,
+body {
+  scroll-behavior: smooth !important;
 }
 
 body {
-    background-image: linear-gradient(to bottom right, #138D96 30%, #632366 99%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100svh;
-    margin-inline: 5rem;
+  min-height: 100svh;
+  overflow: hidden;
+  margin-inline: 5rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index:-1;
+    background-image: radial-gradient(#138d96, #632366);
+    pointer-events:none;
+    
+  }
+  &::before {
+    height:50rem;
+    width: 50rem;
+    filter: blur(10rem);
+    right: -30rem;
+    bottom: -15rem;
+  }
+  &::after{
+    height:30rem;
+    width:30rem;
+    left:-20%;
+    bottom:-20%;
+    filter:blur(120px)
+  }
 }
-
+li:hover {
+  color: #138d96;
+}
 .Logo {
-    background-image: url('../../public/images/corazon.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 64px;
-    width: 64px;
-    &__container {
-        p {
-            font-family: 'Montserrat Alternates', sans-serif
-        }
-        ;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        flex-direction: column;
+  background-image: url('../../public/images/corazon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 64px;
+  width: 64px;
+  &__container {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    p {
+      color: black;
+      font-family: 'Montserrat Alternates', sans-serif;
     }
+  }
 }

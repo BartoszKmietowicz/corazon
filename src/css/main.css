@@ -1,44 +1,212 @@
 .nav__bar {
   height: 5rem;
 }
+
 .nav__list {
   display: flex;
   justify-content: flex-start;
   text-align: center;
   align-items: center;
+  gap: 10rem;
 }
+
+.nav__logo {
+  width: 30%;
+}
+
 .nav__item {
-  width: 25%;
   list-style: none;
   text-transform: capitalize;
-  color: white;
-  text-align: left;
+  text-align: right;
   letter-spacing: 1.5px;
   font-weight: 600;
   font-size: clamp(0.75rem, 30vw, 1.2rem);
 }
+
 .nav__item:hover {
   cursor: pointer;
 }
 
+.nav__items {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10rem;
+  align-items: center;
+}
+
+.Logo, p {
+  pointer-events: none;
+}
+
+.Hero {
+  display: flex;
+  align-items: center;
+}
+
 .Hero__left {
-  color: white;
+  height: 50%;
   width: 30%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  gap: 5rem;
   line-height: 1.5rem;
   letter-spacing: 1.5px;
   text-align: justify;
+  gap: 5rem;
+}
+
+.Hero__left h1 {
+  color: #138d96;
+}
+
+.Hero__right {
+  position: relative;
+  width: 70%;
+  height: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.Hero__right__image {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.Hero__right__CTA {
+  background-color: #138d96;
+  padding: 0.5rem 2rem;
+  border-radius: 5px;
+  outline: 1px solid #138d96;
+  outline-offset: 5px;
+  transition: all 250ms linear;
+}
+
+.Hero__right__CTA:hover {
+  box-shadow: 0 0 5px #138d96;
+  cursor: pointer;
+  outline: 1px white solid;
+  outline-offset: -5px;
+}
+
+.Hero__right__CTA a {
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  all: unset;
+  color: white;
+}
+
+#team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+#team .controls {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#team .controls button {
+  position: relative;
+  padding: 0.5rem;
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  font-family: 'MontserratAlternates', sans-serif;
+  transition: all 250ms linear;
+}
+
+#team .controls button.active {
+  color: #138d96;
+}
+
+#team .controls button:hover {
+  cursor: pointer;
+}
+
+#team .controls button.active::before {
+  width: 100%;
+}
+
+#team .controls button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  width: 0%;
+  background-color: currentColor;
+  transition: width 100ms linear;
+}
+
+#team .team__container {
+  margin-bottom: 2rem;
+  list-style: none;
+}
+
+#team .team__container li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#team .team__container .person {
+  padding: 2rem;
+  border-radius: 50px;
+  background: #138d96;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+  transition: translate 250ms linear, box-shadow 250ms linear;
+}
+
+#team .team__container .person img {
+  border-radius: 50% 50% 50% 50% / 54% 33% 67% 46%;
+  object-fit: cover;
+}
+
+#team .team__container .person__name {
+  color: white;
+  font-size: 1.25rem;
+}
+
+#team .team__container .person__description {
+  color: white;
+  width: 75%;
+  letter-spacing: 1.5px;
+  text-align: justify;
+  font-size: 0.8rem;
+}
+
+#team .team__container .person:hover {
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translateZ(0) scale(1, 1);
+  -webkit-transform: translateZ(0) scale(1, 1);
+  translate: -0.5% -0.5%;
+  box-shadow: 0px 5px 10px rgba(19, 141, 150, 0.5);
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App {
@@ -48,12 +216,45 @@
   gap: 5rem;
 }
 
+html,
 body {
-  background-image: linear-gradient(to bottom right, #138D96 30%, #632366 99%);
-  background-size: cover;
-  background-repeat: no-repeat;
+  scroll-behavior: smooth !important;
+}
+
+body {
   min-height: 100svh;
+  overflow: hidden;
   margin-inline: 5rem;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+body::before, body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-image: radial-gradient(#138d96, #632366);
+  pointer-events: none;
+}
+
+body::before {
+  height: 50rem;
+  width: 50rem;
+  filter: blur(10rem);
+  right: -30rem;
+  bottom: -15rem;
+}
+
+body::after {
+  height: 30rem;
+  width: 30rem;
+  left: -20%;
+  bottom: -20%;
+  filter: blur(120px);
+}
+
+li:hover {
+  color: #138d96;
 }
 
 .Logo {
@@ -63,6 +264,7 @@ body {
   height: 64px;
   width: 64px;
 }
+
 .Logo__container {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -71,6 +273,9 @@ body {
   align-items: flex-start;
   flex-direction: column;
 }
+
 .Logo__container p {
-  font-family: "Montserrat Alternates", sans-serif;
-}/*# sourceMappingURL=main.css.map */
+  color: black;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+/*# sourceMappingURL=main.css.map */
