@@ -1,36 +1,52 @@
 .nav {
-    &__bar {
-        height: 5rem;
-    }
-    &__list {
-        display: flex;
-        justify-content: flex-start;
-        text-align: center;
-        align-items: center;
-        gap:10rem;
-    }
-    &__logo{
-        width:30%;
-    }
-    &__item {
-        list-style: none;
-        text-transform: capitalize;
-        text-align: right;
-        letter-spacing: 1.5px;
-        font-weight: 600;
-        font-size: clamp(0.75rem, 30vw, 1.2rem);
-        &:hover {
-            cursor: pointer;
-        }
-    }
-    &__items{
-        width:70%;
+  &__bar {
+    margin-top:1rem;
+    color: white;
+    height: 5rem;
+    &-mobile {
+      display: none;
+      a{
         display:flex;
-        justify-content: flex-end;
-        gap:10rem;
-        align-items: center;
+        justify-content: center;
+        align-items:center;
+        flex-direction: column;
+      }
     }
+  }
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    gap: 10rem;
+  }
+  &__logo {
+    width: 30%;
+    .Logo__container {
+      p {
+        color: #fff;
+      }
+    }
+  }
+  &__item {
+    list-style: none;
+    text-transform: capitalize;
+    text-align: right;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-size: clamp(0.75rem, 30vw, 1.2rem);
+    transition: all 250ms linear;
+    &:hover {
+      color: #139d96;
+      cursor: pointer;
+    }
+  }
+  &__items {
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10rem;
+    align-items: center;
+  }
 }
-.Logo,p{
-    pointer-events: none;
-}
+

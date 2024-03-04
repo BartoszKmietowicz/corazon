@@ -1,5 +1,18 @@
 .nav__bar {
+  margin-top: 1rem;
+  color: white;
   height: 5rem;
+}
+
+.nav__bar-mobile {
+  display: none;
+}
+
+.nav__bar-mobile a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .nav__list {
@@ -14,6 +27,10 @@
   width: 30%;
 }
 
+.nav__logo .Logo__container p {
+  color: #fff;
+}
+
 .nav__item {
   list-style: none;
   text-transform: capitalize;
@@ -21,9 +38,11 @@
   letter-spacing: 1.5px;
   font-weight: 600;
   font-size: clamp(0.75rem, 30vw, 1.2rem);
+  transition: all 250ms linear;
 }
 
 .nav__item:hover {
+  color: #139d96;
   cursor: pointer;
 }
 
@@ -35,47 +54,56 @@
   align-items: center;
 }
 
-.Logo, p {
-  pointer-events: none;
-}
-
 .Hero {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
+  flex-direction: row;
+  gap: 5rem;
 }
 
 .Hero__left {
-  height: 50%;
-  width: 30%;
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
   flex-direction: column;
   line-height: 1.5rem;
   letter-spacing: 1.5px;
   text-align: justify;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .Hero__left h1 {
-  color: #138d96;
+  font-size: 1.8rem;
 }
 
 .Hero__right {
-  position: relative;
-  width: 70%;
-  height: 50%;
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
 }
 
-.Hero__right__image {
+.Hero__right__shape {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  border-radius: 30% 70% 70% 30% / 30% 30% 40% 60%;
+  animation: blob-animation 10000ms infinite forwards linear alternate;
+}
+
+.Hero__right__shape-blob {
+  width: 35rem;
+  height: 25rem;
+  background-image: url("../images/image.jpg");
+  background-size: cover;
+  border-radius: inherit;
+  background-position: center center;
+  filter: drop-shadow(5px 5px 20px rgba(99, 35, 102, 0.3));
 }
 
 .Hero__right__CTA {
@@ -92,140 +120,260 @@
   cursor: pointer;
   outline: 1px white solid;
   outline-offset: -5px;
+  color: white;
 }
 
-.Hero__right__CTA a {
-  scroll-behavior: smooth;
+.Hero__right__CTA li {
   width: 100%;
   height: 100%;
   all: unset;
   color: white;
 }
 
-#team {
+.Hero__right__CTA li:hover {
+  color: white;
+}
+
+.Hero__right__CTA li a {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes blob-animation {
+  from {
+    border-radius: 30% 70% 70% 30% / 30% 30% 40% 60%;
+  }
+  to {
+    border-radius: 30% 70% 70% 30% / 50% 50% 50% 70%;
+  }
+}
+
+#Team {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   gap: 2.5rem;
 }
 
-#team .controls {
-  width: 50%;
+#Team .title {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-}
-
-#team .controls button {
-  position: relative;
   padding: 0.5rem;
   background: none;
   outline: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   letter-spacing: 1.5px;
-  font-family: 'MontserratAlternates', sans-serif;
-  transition: all 250ms linear;
-}
-
-#team .controls button.active {
-  color: #138d96;
-}
-
-#team .controls button:hover {
-  cursor: pointer;
-}
-
-#team .controls button.active::before {
-  width: 100%;
-}
-
-#team .controls button::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 1px;
-  width: 0%;
-  background-color: currentColor;
-  transition: width 100ms linear;
-}
-
-#team .team__container {
-  margin-bottom: 2rem;
-  list-style: none;
-}
-
-#team .team__container li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#team .team__container .person {
-  padding: 2rem;
-  border-radius: 50px;
-  background: #138d96;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  width: 50%;
-  transition: translate 250ms linear, box-shadow 250ms linear;
-}
-
-#team .team__container .person img {
-  border-radius: 50% 50% 50% 50% / 54% 33% 67% 46%;
-  object-fit: cover;
-}
-
-#team .team__container .person__name {
+  font-family: 'Montserrat', sans-serif;
   color: white;
-  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-#team .team__container .person__description {
+#Team .team__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50%;
+  border-radius: 54px;
+}
+
+#Team .team__container .blob {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  background-color: #87358b;
+  background-image: url("../images/edyta.png");
+  background-size: cover;
+  background-position: right top;
+  filter: drop-shadow(5px 5px 20px rgba(99, 35, 102, 0.3));
+  animation: blob-animation 2000ms linear infinite alternate;
+}
+
+#Team .team__container .person {
+  padding: 2rem 5rem;
+  width: 75%;
+  border-radius: 50px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#Team .team__container .person h2 {
+  font-size: 2.5rem;
+  letter-spacing: 1.2px;
+  font-family: 'Sacramento', cursive;
+}
+
+#Team .team__container .person__description {
   color: white;
   width: 75%;
+  height: 100%;
   letter-spacing: 1.5px;
   text-align: justify;
-  font-size: 0.8rem;
+  font-size: clamp(0.6rem, 1rem, 1rem);
 }
 
-#team .team__container .person:hover {
-  -webkit-font-smoothing: subpixel-antialiased;
-  transform: translateZ(0) scale(1, 1);
-  -webkit-transform: translateZ(0) scale(1, 1);
-  translate: -0.5% -0.5%;
-  box-shadow: 0px 5px 10px rgba(19, 141, 150, 0.5);
+#Team .box__container {
+  width: 75%;
+  height: 30%;
+  gap: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+#Team .box__container__boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+#Team .box__container__item {
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 15px;
+  padding: 2rem;
+  background-color: #1f323f80;
+  transition: all 250ms linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  transform-style: preserve-3d;
+}
+
+#Team .box__container__item:hover {
+  transition: all 250ms linear;
+  cursor: pointer;
+  background: #1f323f;
+  box-shadow: 0 0 5px 5px #1f323f80;
+}
+
+#Team .box__container__item::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.3;
+  position: absolute;
+  background-repeat: no-repeat;
+  isolation: isolate;
+}
+
+#Team .box__container__description {
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Team .box__container__description div:not(:empty) {
+  width: 75%;
+  text-align: left;
+}
+
+.box__container__item.active {
+  background: #1f323f !important;
+}
+
+.box__container__item.active.Numerology::before {
+  background-image: url("../images/numerology.svg");
+  transform: rotate(25deg);
+}
+
+.box__container__item.active.Tarot::before {
+  background-size: cover;
+  background-image: url("../images/tarot.svg");
+}
+
+.box__container__item.active.Symbolism::before {
+  background-image: url("../images/Symbolism.svg");
+}
+
+.box__container__item.active.Graphology::before {
+  background-image: url("../images/graphology.svg");
+}
+
+.box__container__item.active.Diagnosis::before {
+  width: 80px !important;
+  height: 80px !important;
+  background-image: url("../images/diagnosis.svg");
+}
+
+.Contact {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Contact__info {
+  width: 100%;
+  height: 75%;
+}
+
+.Contact__info__phone {
+  padding: 2rem;
+  background: #1f323f;
+  border-radius: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.Contact__info__phone a {
+  transition: color 250ms linear;
+  font-weight: bold;
+}
+
+.Contact__info__phone a:hover {
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: '', sans-serif;
 }
 
 .App {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 5rem;
+  color: white;
+  overflow-x: hidden;
 }
 
-html,
-body {
-  scroll-behavior: smooth !important;
+html {
+  scroll-behavior: smooth;
 }
 
-body {
+section {
   min-height: 100svh;
-  overflow: hidden;
+}
+
+body {
   margin-inline: 5rem;
-  background-color: rgba(255, 255, 255, 0.6);
+  overflow-x: hidden;
+  background-image: linear-gradient(to bottom, #1f323f, #139d96);
 }
 
 body::before, body::after {
@@ -240,7 +388,7 @@ body::before, body::after {
 body::before {
   height: 50rem;
   width: 50rem;
-  filter: blur(10rem);
+  filter: blur(7rem);
   right: -30rem;
   bottom: -15rem;
 }
@@ -250,15 +398,16 @@ body::after {
   width: 30rem;
   left: -20%;
   bottom: -20%;
-  filter: blur(120px);
+  filter: blur(3rem);
 }
 
-li:hover {
-  color: #138d96;
+h2,
+h3 {
+  font-size: 2.5rem;
 }
 
 .Logo {
-  background-image: url("../../public/images/corazon.svg");
+  background-image: url("../images/corazon.svg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 64px;
@@ -277,5 +426,140 @@ li:hover {
 .Logo__container p {
   color: black;
   font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.Logo,
+p {
+  pointer-events: none;
+}
+
+a {
+  all: unset;
+}
+
+@media screen and (max-width: 1040px) {
+  .nav__bar {
+    display: none;
+  }
+  .nav__bar-mobile {
+    display: flex;
+    justify-content: center;
+  }
+  .nav__bar-mobile li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .nav__bar-mobile li p {
+    color: white;
+  }
+  .Contact__info {
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: flex-start;
+  }
+  .nav__bar-mobile {
+    margin-top: 2rem;
+  }
+  h1 {
+    line-height: 2rem !important;
+    font-size: 1rem;
+  }
+  body {
+    margin: 0 2rem;
+  }
+  body::before, body::after {
+    display: none;
+  }
+  .Hero {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 1.55rem !important;
+    gap: 2rem;
+  }
+  .Hero__left {
+    width: 100%;
+    text-align: center !important;
+    align-items: center;
+  }
+  .Hero__right {
+    position: relative;
+  }
+  .Hero__right__shape {
+    position: absolute;
+    bottom: 50%;
+    z-index: -1;
+    opacity: 0.5;
+    text-shadow: 1px 1px 2px black;
+  }
+  .Hero__right__shape-blob {
+    height: 20rem;
+    width: 20rem;
+  }
+  #Team {
+    justify-content: space-between;
+  }
+  #Team .team__container {
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: 0;
+  }
+  #Team .person {
+    padding: 2rem 0rem !important;
+    width: 100% !important;
+  }
+  #Team .person__description {
+    text-align: center !important;
+    padding: 0.5rem 1rem;
+    width: 100% !important;
+    margin-bottom: 2rem;
+  }
+  #Team .person__description div {
+    text-align: left !important;
+  }
+  #Team .box__container {
+    width: auto;
+    height: auto;
+  }
+  #Team .box__container__description {
+    min-width: fit-content;
+    height: 5rem;
+    margin-top: 2rem;
+  }
+  #Team .box__container__description div:not(:empty) {
+    text-align: center !important;
+  }
+  #Team .blob {
+    width: 20rem;
+    height: 20rem;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    opacity: 0.4;
+    animation: none !important;
+    border-radius: 50px !important;
+  }
+  .Contact {
+    justify-content: center;
+    gap: 5rem;
+  }
+  .Contact__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+  }
+  .Contact__info__phone {
+    width: 20rem !important;
+    padding: 1rem;
+  }
+}
+
+.Logo {
+  pointer-events: none;
 }
 /*# sourceMappingURL=main.css.map */

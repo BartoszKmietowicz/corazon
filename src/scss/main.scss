@@ -1,59 +1,62 @@
 @import './navigation';
 @import './hero';
 @import './team';
+@import './contact';
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: '', sans-serif;
 }
 
 .App {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 5rem;
+  color: white;
+  overflow-x: hidden;
 }
-html,
-body {
-  scroll-behavior: smooth !important;
+html {
+  scroll-behavior: smooth;
 }
-
-body {
+section {
   min-height: 100svh;
-  overflow: hidden;
+}
+body {
   margin-inline: 5rem;
-  background-color: rgba(255, 255, 255, 0.6);
+  overflow-x: hidden;
+  background-image: linear-gradient(to bottom, #1f323f, #139d96);
   &::before,
   &::after {
     content: '';
     position: absolute;
     border-radius: 50%;
-    z-index:-1;
+    z-index: -1;
     background-image: radial-gradient(#138d96, #632366);
-    pointer-events:none;
-    
+    pointer-events: none;
   }
   &::before {
-    height:50rem;
+    height: 50rem;
     width: 50rem;
-    filter: blur(10rem);
+    filter: blur(7rem);
     right: -30rem;
     bottom: -15rem;
   }
-  &::after{
-    height:30rem;
-    width:30rem;
-    left:-20%;
-    bottom:-20%;
-    filter:blur(120px)
+  &::after {
+    height: 30rem;
+    width: 30rem;
+    left: -20%;
+    bottom: -20%;
+    filter: blur(3rem);
   }
 }
-li:hover {
-  color: #138d96;
+
+h2,
+h3 {
+  font-size: 2.5rem;
 }
 .Logo {
-  background-image: url('../../public/images/corazon.svg');
+  background-image: url('../images/corazon.svg');
   background-repeat: no-repeat;
   background-size: cover;
   height: 64px;
@@ -70,4 +73,144 @@ li:hover {
       font-family: 'Montserrat Alternates', sans-serif;
     }
   }
+}
+.Logo,
+p {
+  pointer-events: none;
+}
+a {
+  all: unset;
+}
+
+@media screen and (max-width: 1040px) {
+  .nav__bar {
+    display: none;
+    &-mobile {
+      display: flex;
+      justify-content: center;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        p {
+          color: white;
+        }
+      }
+    }
+  }
+  .Contact__info {
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: flex-start;
+  }
+  .nav__bar-mobile {
+    margin-top: 2rem;
+  }
+  h1 {
+    line-height:2rem !important;
+    font-size: 1rem;
+  }
+  body {
+    // margin-inline:none;
+    margin: 0 2rem;
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+  .Hero {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height:1.55rem !important;
+    gap: 2rem;
+   
+    &__left {
+      width: 100%;
+      text-align: center !important;
+      align-items: center;
+    }
+    &__right {
+      position: relative;
+      &__shape {
+        &-blob {
+          height: 20rem;
+          width: 20rem;
+        }
+        position: absolute;
+        bottom: 50%;
+
+        z-index: -1;
+        opacity: 0.5;
+              text-shadow: 1px 1px 2px black;
+
+      }
+    }
+  }
+  #Team {
+    justify-content: space-between;
+    .team__container {
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+
+      padding: 0;
+    }
+    .person {
+      padding: 2rem 0rem !important;
+      width: 100% !important;
+     
+      &__description {
+        text-align: center !important;
+        padding:0.5rem 1rem;
+        width: 100% !important;
+        margin-bottom: 2rem;
+        div{
+           text-align: left !important;
+        }
+      }
+    }
+    .box__container {
+      width: auto;
+      height: auto;
+      &__description {
+        min-width: fit-content;
+        height: 5rem;
+        margin-top: 2rem;
+        div:not(:empty){
+        text-align: center !important;
+
+        }
+      }
+    }
+    .blob {
+      width: 20rem;
+      height: 20rem;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      opacity: 0.4;
+      animation: none !important;
+      border-radius: 50px !important;
+    }
+  }
+  .Contact {
+    justify-content: center;
+    gap:5rem;
+    &__info {
+      display: flex;
+    justify-content: center;
+    align-items: center;
+      padding: 4rem;
+      &__phone {
+        width:20rem !important;
+        padding: 1rem;
+      }
+    }
+  }
+}
+.Logo{
+  pointer-events: none;
 }

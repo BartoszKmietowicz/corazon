@@ -2,44 +2,21 @@ import React, { useEffect, useState } from 'react';
 import Person from './Person';
 
 function Team() {
-  const [isVisible, setVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState({ id: '' });
+
   useEffect(() => {
-    console.log(isVisible);
-  }, [isVisible]);
-  const toggleView = (e) => {
-    setVisible(!isVisible);
+    setIsVisible({ id: '1' });
+  }, []);
+  const handleClick = (e) => {
+    setIsVisible({ id: e.target.id });
+    // console.log(e.target.id);
   };
   return (
-    <section id='team'>
-      <div className='controls'>
-        <button
-          type='button'
-          className={isVisible ? 'active' : ''}
-          disabled={isVisible}
-          onClick={() => toggleView()}
-        >
-          Małgorzata
-        </button>
-        <button
-          type='button'
-          className={!isVisible ? 'active' : ''}
-          disabled={!isVisible}
-          onClick={() => toggleView()}
-        >
-          Ewa
-        </button>
-      </div>
+    <section id='Team'>
+      <div className='title'>Nasz Zespół</div>
       <ul className='team__container'>
-        {isVisible && (
-          <li>
-            <Person personName='Małgorzata Sabadasz' />
-          </li>
-        )}
-        {!isVisible && (
-          <li>
-            <Person personName='Ewa' />
-          </li>
-        )}
+        <div className='blob'></div>
+        <Person clickHandler={handleClick} isVisible={isVisible} />
       </ul>
     </section>
   );

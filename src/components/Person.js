@@ -1,20 +1,18 @@
 import React from 'react';
+import SkillContainer from './SkillContainer';
 
-function Person({ src = 'https://picsum.photos/200/300', personName }) {
+function Person({ clickHandler, isVisible }) {
   return (
     <div className='person'>
-      <img className='person__image' alt='person' src={src} />
-      <div className='person__name'>{personName}</div>
+      <h2>Edyta</h2>
       <p className='person__description'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit.Autem
-        exercitationem animi voluptas saepe consequatur sint, ducimus nostrum
-        dolore cumque aut placeat sapiente fugit possimus inventore.Quae
-        sapiente laborum nobis enim ? Laborum, voluptate accusamus veritatis,
-        nesciunt iste repellat nostrum reiciendis temporibus optio tempora culpa
-        unde sequi eos esse inventore sit laudantium explicabo.Hic nesciunt
-        assumenda eaque soluta veritatis cupiditate magni!Vero.Est qui commodi
-        adipisci amet eius, dolores tenetur nobis ?
+        Jestem Twoją przewodniczką w tajemniczym labiryncie wszechświata, a moje
+        kwalifikacje to nie tylko zbiór tytułów, ale przede wszystkim pasja do
+        odkrywania znaczeń ukrytych pod powierzchnią rzeczywistości. Jako
+        dyplomowany psychotronik ze specjalizacją biotroniki, posługuję się
+        energią, aby wspomóc Cię w procesie uzdrawiania i równowagi.
       </p>
+      <SkillContainer clickHandler={clickHandler} isVisible={isVisible} />
     </div>
   );
 }
